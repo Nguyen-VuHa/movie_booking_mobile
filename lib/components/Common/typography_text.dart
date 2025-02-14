@@ -7,6 +7,8 @@ class TypographyText extends StatelessWidget {
   final double? fontSize;
   final FontWeight? fontWeight;
   final TextAlign? textAlign;
+  final int? maxLines;
+  final TextOverflow? overflow;
 
  const TypographyText(
     this.text, { 
@@ -15,6 +17,8 @@ class TypographyText extends StatelessWidget {
     this.fontSize,
     this.fontWeight,
     this.textAlign,
+    this.maxLines,
+    this.overflow,
   });
 
   @override
@@ -22,10 +26,13 @@ class TypographyText extends StatelessWidget {
     return Text(
       text,
       textAlign: textAlign ?? TextAlign.left,
+      maxLines: maxLines,
+      overflow: overflow, 
       style: TextStyle(
         color: color ?? AppColors.infoColor,
         fontSize: fontSize ?? 16.0,
         fontWeight: fontWeight ?? FontWeight.normal,
+       
       ),
     );
   }

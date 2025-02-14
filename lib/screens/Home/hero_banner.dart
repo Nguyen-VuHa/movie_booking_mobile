@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_booking_mobile/components/Common/lazy_load_image.dart';
 
 class HeroBanner extends StatelessWidget {
   final List<String> bannerImages = [
@@ -26,8 +27,8 @@ class HeroBanner extends StatelessWidget {
         items: bannerImages.map((imageUrl) {
           return ClipRRect(
             borderRadius: BorderRadius.circular(6), // Bo góc ảnh
-            child: Image.network(
-              imageUrl,
+            child: LazyLoadImage(
+              imageUrl: imageUrl,
               width: double.infinity,
               fit: BoxFit.cover,
             ),

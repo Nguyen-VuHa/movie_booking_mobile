@@ -24,7 +24,8 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(height: 20),
                 MovieNowShowing(),
                 SizedBox(height: 20),
-                MovieCommingSoon()
+                MovieCommingSoon(),
+                SizedBox(height: 30),
               ],
             ),
           ),
