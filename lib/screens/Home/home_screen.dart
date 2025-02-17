@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_booking_mobile/components/Modals/trailer_modal.dart';
 import 'package:movie_booking_mobile/constants/color_constants.dart';
 import 'package:movie_booking_mobile/screens/Home/hero_banner.dart';
 import 'package:movie_booking_mobile/screens/Home/movie_comming_soon.dart';
