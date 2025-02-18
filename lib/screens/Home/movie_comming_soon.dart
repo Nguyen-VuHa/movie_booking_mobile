@@ -16,7 +16,7 @@ class MovieCommingSoon extends StatelessWidget {
       children: [
         TypographyText('Phim Sắp Chiếu', fontSize: 25, fontWeight: FontWeight.w600,),
         SizedBox(height: 10),
-        MovieSlider(movies: movie.movie_comming_soon),
+        MovieSlider(movies: movie.movie_comming_soon, comming_soon: true,),
       ],
     );
   }

@@ -4,13 +4,16 @@ import 'package:movie_booking_mobile/components/Common/lazy_load_image.dart';
 import 'package:movie_booking_mobile/components/Common/typography_text.dart';
 import 'package:movie_booking_mobile/components/Modals/trailer_modal.dart';
 import 'package:movie_booking_mobile/constants/color_constants.dart';
+import 'package:movie_booking_mobile/models/movie.dart';
 
 class MovieItem extends StatelessWidget {
-  final String posterURL;
+  final MovieDetail movie;
+  final bool comming_soon;
 
   const MovieItem({
     super.key,
-    required this.posterURL,
+    required this.movie,
+    this.comming_soon = false,
   });
 
   @override
@@ -21,7 +24,7 @@ class MovieItem extends StatelessWidget {
           children: [
             // Ảnh nền
             LazyLoadImage(
-              imageUrl: posterURL,
+              imageUrl: movie.poster,
               width: double.infinity,
               height: MediaQuery.of(context).size.height,
               fit: BoxFit.cover,
@@ -32,7 +35,7 @@ class MovieItem extends StatelessWidget {
               bottom: 0,
               left: 0,
               width: constraints.maxWidth, // Lấy width từ LayoutBuilder
-              height: 100,
+              height: 120,
               child: Container(
                 width: constraints.maxWidth,
                 padding: EdgeInsets.all(10),
@@ -51,31 +54,43 @@ class MovieItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     TypographyText(
-                      'Nhà Bà Nữ',
+                      movie.title,
                       color: AppColors.warningColor,
-                      fontSize: 18,
+                      fontSize: 16,
                       fontWeight: FontWeight.w600,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    Row(children: [
-                      Button(
-                        text: 'Đặt vé',
-                        backgroundColor: AppColors.warningColor,
-                        onPressed: () => {},
-                      ),
-                      SizedBox(width: 5,),
-                      Button(
-                        text: 'Trailer',
-                        backgroundColor: AppColors.errorColor,
-                        onPressed: () => {
-                          showDialog(
-                              context: context,
-                              builder: (context) => TrailerModal(videoUrl: "https://www.youtube.com/watch?v=PnlS4B0GPOA"),
-                            )
-                        },
-                      ),
-                    ],),
+                    Row(
+                      children: [
+                        if(!comming_soon)
+                          Expanded(
+                            child: Button(
+                              text: 'Đặt vé',
+                              backgroundColor: AppColors.warningColor,
+                              onPressed: () => {},
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                        
+                        Expanded(
+                          child: Button(
+                            text: 'Trailer',
+                            backgroundColor: AppColors.errorColor,
+                            onPressed: () => {
+                              showDialog(
+                                context: context,
+                                builder: (context) => TrailerModal(
+                                    videoUrl:
+                                        "https://www.youtube.com/watch?v=" + movie.trailerId),
+                              )
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),

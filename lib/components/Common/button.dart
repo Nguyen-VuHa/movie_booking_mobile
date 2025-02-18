@@ -18,7 +18,7 @@ class Button extends StatelessWidget {
     this.textColor = Colors.white,
     this.borderRadius = 8.0,
     this.icon,
-    this.fontSize = 14.0,
+    this.fontSize = 12.0,
   });
 
   @override
@@ -41,7 +41,7 @@ class Button extends StatelessWidget {
           children: [
             if (icon != null) ...[
               Icon(icon, color: textColor, size: fontSize + 2),
-              SizedBox(width: 8),
+              SizedBox(width: 4),
             ],
             Text(
               text,
