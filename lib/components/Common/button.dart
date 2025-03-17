@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_booking_mobile/constants/color_constants.dart';
 
@@ -26,6 +27,12 @@ class Button extends StatelessWidget {
     return SizedBox(
       child: ElevatedButton(
         style: ButtonStyle(
+          padding: WidgetStateProperty.all<EdgeInsets>(
+            EdgeInsets.all(1),
+          ),
+          minimumSize: WidgetStateProperty.all<Size>(
+            Size(double.infinity, 32),
+          ),
           backgroundColor: WidgetStateProperty.resolveWith<Color?>(
             (Set<WidgetState> states) {
               if (states.contains(WidgetState.pressed)) {

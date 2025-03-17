@@ -69,6 +69,7 @@ class MovieItem extends StatelessWidget {
                               text: 'Đặt vé',
                               backgroundColor: AppColors.warningColor,
                               onPressed: () => {},
+                              fontSize: 10,
                             ),
                           ),
                           SizedBox(
@@ -79,6 +80,7 @@ class MovieItem extends StatelessWidget {
                           child: Button(
                             text: 'Trailer',
                             backgroundColor: AppColors.errorColor,
+                            fontSize: 10,
                             onPressed: () => {
                               showDialog(
                                 context: context,
